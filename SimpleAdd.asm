@@ -1,4 +1,8 @@
-push constant 7
-push constant 8
-add
-
+@256
+D=A
+@SP
+M=D
+@300
+D=A
+@LCL
+M=D

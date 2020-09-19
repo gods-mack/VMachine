@@ -1,5 +1,6 @@
 
 #include<bits/stdc++.h>
+#include "intialize.h"
 using namespace std;
 
 
@@ -22,6 +23,7 @@ int main(int argc, char **argv) {
 
 	out_fname += ".asm";
 	fout.open(out_fname);
+	register_entry(fout);
 
 
 
@@ -35,7 +37,7 @@ int main(int argc, char **argv) {
 		if(line[0] == '/' or (int)line[0] == 13){
 			continue;
 		}
-		fout<<line<<endl;
+		//fout<<line<<endl;
 	}
 
 	fin.close();
