@@ -58,7 +58,7 @@ int main(int argc, char **argv) {
 			vector<string> cmds;
 			cmd_parser(line,cmds);
 
-			cout<<"c_type "<<cmds[0]<<endl;
+			
 			if(cmds[0] == "push" or cmds[0] == "pop") {
 				string arg1 = cmds[1]; 
 				string arg2 = cmds[2];
