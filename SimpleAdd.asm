@@ -40,3 +40,6 @@ D=D+M
 M=D
 @SP
 M=M-1
+(LOOP)
+@LOOP
+0;JMP

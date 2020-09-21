@@ -66,7 +66,7 @@ int main(int argc, char **argv) {
 
 				writePushPop(cmds[0],arg1,arg2,fout);
 			}
-			else if(cmds[0] == "add") {
+			else if(cmds[0] == "add" or cmds[0]=="sub") {
 				writeArithmetic(cmds[0],fout);
 			}
 		}
