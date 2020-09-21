@@ -3,16 +3,16 @@ Hack Virtual Machine which converts virtual machine code or VM code into Hack as
 
 ## Stages of our VM program :-
 
-Stage I: Stack Arithmetic
+Stage I: Stack Arithmetic Commands
 
-■ SimpleAdd: Pushes and adds two constants.
+■ Pushes and adds two constants.
 
-■ StackTest: Executes a sequence of arithmetic and logical operations on the stack.
+■ Executes a sequence of arithmetic and logical operations on the stack.
 
-Stage II: Memory Access
+Stage II: Memory Access Commands
 
-■ BasicTest: Executes pop and push operations using the virtual memory segments.
+■ Executes pop and push operations using the virtual memory segments.
 
-■ PointerTest: Executes pop and push operations using the pointer, this, and that segments.
+■ Executes pop and push operations using the pointer, this, and that segments.
 
-■ StaticTest: Executes pop and push operations using the static segment.
+■ Executes pop and push operations using the static segment.
