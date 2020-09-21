@@ -5,7 +5,7 @@ Hack Virtual Machine which converts virtual machine code or VM code into Hack as
 
 Stage I: Stack Arithmetic Commands
 
-■ Pushes and adds two constants.
+■ Pushes and adds and subtracts two constants.
 
 ■ Executes a sequence of arithmetic and logical operations on the stack.
 
