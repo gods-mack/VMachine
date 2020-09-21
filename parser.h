@@ -2,11 +2,10 @@
 #define _PARSER_H
 
 
-//vector<string> cmds;  // 3 commands
-
+int i_par = 0; // current command number
 
 void cmd_parser(string line, vector<string> &cmds) {
-//	cout<<"line "<<line<<" "<<line.length()<<endl;
+
 
 	
 	string tmp = "";
@@ -21,11 +20,12 @@ void cmd_parser(string line, vector<string> &cmds) {
 	}
 	cmds.push_back(tmp);
 
-	cout<<"#commands\n";
+	i_par++; // inc. command var
 
 
 	
 }
+
 
 
 

@@ -49,8 +49,7 @@ int main(int argc, char **argv) {
 	while(fin) {
 
 		getline(fin,line); // read line from input file
-		//cout<<line<<endl;
-
+		
 		// remove comment and blank line
 		if(line[0] == '/' or (int)line[0] == 13){
 			continue;
@@ -66,11 +65,20 @@ int main(int argc, char **argv) {
 
 				writePushPop(cmds[0],arg1,arg2,fout);
 			}
-			else if(cmds[0] == "add" or cmds[0]=="sub") {
+			else if(cmds[0] == "add" 
+					or cmds[0]=="sub" 
+					or cmds[0]=="eq" 
+					or cmds[0]=="or"
+					or cmds[0]=="not"
+					or cmds[0]=="gt"
+					or cmds[0]=="lt"
+					or cmds[0]=="and"
+					or cmds[0]=="neg"
+				) {
 				writeArithmetic(cmds[0],fout);
 			}
 		}
-		//fout<<line<<endl;
+		
 	}
 
 	fin.close();

@@ -1,9 +1,11 @@
 #ifndef _TRANSLATOR_H
 #define _TRANSLATOR_H
-
+#include "parser.h"
+	
 
 void writeArithmetic(string cmd, ofstream &fout) {
 
+	
 	if(cmd == "add") {
 		fout<<"@SP"<<endl;
 		fout<<"A=M-1"<<endl;
@@ -25,7 +27,112 @@ void writeArithmetic(string cmd, ofstream &fout) {
 		fout<<"@SP"<<endl;
 		fout<<"M=M-1"<<endl;
 	}
+
+	else if(cmd == "or") {
+		fout<<"@SP"<<endl;
+		fout<<"A=M-1"<<endl;
+		fout<<"D=M"<<endl;
+		fout<<"A=A-1"<<endl;
+		fout<<"M=D|M"<<endl;
+		fout<<"@SP"<<endl;
+		fout<<"M=M-1"<<endl;
+	}
+
+	else if(cmd == "and") {
+		fout<<"@SP"<<endl;
+		fout<<"A=M-1"<<endl;
+		fout<<"D=M"<<endl;
+		fout<<"A=A-1"<<endl;
+		fout<<"M=D&M"<<endl;
+		fout<<"@SP"<<endl;
+		fout<<"M=M-1"<<endl;
+	}
+
+	else if(cmd == "neg") {
+		fout<<"@SP"<<endl;
+		fout<<"A=M-1"<<endl;
+		fout<<"M=-M"<<endl;
+	}
+
+	else if(cmd == "not") {
+		fout<<"@SP"<<endl;
+		fout<<"A=M-1"<<endl;
+		fout<<"M=!M"<<endl;
+	}
+
+	else if(cmd == "lt") {
+		fout<<"@SP"<<endl;
+		fout<<"A=M-1"<<endl;
+		fout<<"D=M"<<endl;
+		fout<<"A=A-1"<<endl;
+		fout<<"D=M-D"<<endl;
+		fout<<"@IF_LESS_"<<to_string(i_par)<<endl;
+		fout<<"D;JLT"<<endl;
+		fout<<"@SP"<<endl;
+		fout<<"A=M-1"<<endl;
+		fout<<"A=A-1"<<endl;
+		fout<<"M=0"<<endl; // False (x>y)
+		fout<<"@END_"<<to_string(i_par)<<endl;
+		fout<<"0;JMP"<<endl;
+		fout<<"(IF_LESS_"<<to_string(i_par)<<")"<<endl;
+		fout<<"@SP"<<endl;
+		fout<<"A=M-1"<<endl;
+		fout<<"A=A-1"<<endl;
+		fout<<"M=-1"<<endl;  // True (x<y)
+		fout<<"(END_"<<to_string(i_par)<<")"<<endl;
+		fout<<"@SP"<<endl;
+		fout<<"M=M-1"<<endl;
+	}
+	else if(cmd == "gt") {
+		fout<<"@SP"<<endl;
+		fout<<"A=M-1"<<endl;
+		fout<<"D=M"<<endl;
+		fout<<"A=A-1"<<endl;
+		fout<<"D=M-D"<<endl;
+		fout<<"@IF_GREATER_"<<to_string(i_par)<<endl;
+		fout<<"D;JGT"<<endl;
+		fout<<"@SP"<<endl;
+		fout<<"A=M-1"<<endl;
+		fout<<"A=A-1"<<endl;
+		fout<<"M=0"<<endl; // False (x<y)
+		fout<<"@END_"<<to_string(i_par)<<endl;
+		fout<<"0;JMP"<<endl;
+		fout<<"(IF_GREATER_"<<to_string(i_par)<<")"<<endl;
+		fout<<"@SP"<<endl;
+		fout<<"A=M-1"<<endl;
+		fout<<"A=A-1"<<endl;
+		fout<<"M=-1"<<endl;  // True (x>y)
+		fout<<"(END_"<<to_string(i_par)<<")"<<endl;
+		fout<<"@SP"<<endl;
+		fout<<"M=M-1"<<endl;
+	}
+
+	else if(cmd == "eq") {
+		fout<<"@SP"<<endl;
+		fout<<"A=M-1"<<endl;
+		fout<<"D=M"<<endl;
+		fout<<"A=A-1"<<endl;
+		fout<<"D=M-D"<<endl;
+		fout<<"@IF_TRUE_"<<to_string(i_par)<<endl;
+		fout<<"D;JEQ"<<endl;
+		fout<<"@SP"<<endl;
+		fout<<"A=M-1"<<endl;
+		fout<<"A=A-1"<<endl;
+		fout<<"M=0"<<endl; // False (x!=y)
+		fout<<"@END_"<<to_string(i_par)<<endl;
+		fout<<"0;JMP"<<endl;
+		fout<<"(IF_TRUE_"<<to_string(i_par)<<")"<<endl;
+		fout<<"@SP"<<endl;
+		fout<<"A=M-1"<<endl;
+		fout<<"A=A-1"<<endl;
+		fout<<"M=-1"<<endl;  // True (x==y)
+		fout<<"(END_"<<to_string(i_par)<<")"<<endl;
+		fout<<"@SP"<<endl;
+		fout<<"M=M-1"<<endl;
+
+	}
 }
+
 
 void writePushPop(string cmd,string arg1,string arg2,ofstream &fout) {
 
