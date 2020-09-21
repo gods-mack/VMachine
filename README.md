@@ -1,5 +1,9 @@
 # VMachine
 Hack Virtual Machine which converts virtual machine code or VM code into Hack assembly code.
+```
+Run it:
+./output file_name.vm
+```
 
 ## Stages of our VM program :-
 
